@@ -134,6 +134,7 @@
     （4）含有泛型的类的对象，即使泛型的实现不同，对象都是同一类型 如：List a=new ArraList<String>  List b=new ArrayList<Integer>  a和b是同为ArrayList
     （5）含有泛型的类的对象，如果泛型的实现不同，则不能互相赋值 如：List a=new ArraList<String>  List b=new ArrayList<Integer> 不能a=b
     （6）含有泛型的类的对象，是继承关系，如果如果泛型的实现不同，则子类不能自动转型成父类 如：List<Object>!=ListArray<String>
+    （7）泛型还包括通配符，泛型方法等，目前不清楚，待以后深入研究
 
 
 
