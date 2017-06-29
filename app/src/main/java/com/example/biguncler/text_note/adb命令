@@ -1,0 +1,23 @@
+1，安装app到手机上
+    adb install -r apk路径（包括文件名及后缀）
+2，卸载app
+    adb uninstall apk包名
+3，将电脑文件赋值到手机上
+    adb push 电脑文件全路径 复制到手机上的全路径（/sdkcard/download/xxx.zip）
+4，将手机文件复制到电脑上
+    adb pull 手机文件的全路径 复制到电脑全路径
+5，重启手机
+    adb reboot
+    adb reboot -p(关闭手机)
+6，启动adb
+    adb start-server
+7，关闭adb
+    adb kill-server
+8，清除app缓存
+    adb shell pm clear app包名
+9，强制退出app
+    adb shell am force-stop 包名
+10, 查看android系统版本
+    adb shell getprop ro.build.version.release
+11, 查看连接的设备
+    adb devices
