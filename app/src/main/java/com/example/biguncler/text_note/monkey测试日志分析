@@ -1,0 +1,15 @@
+1 分析对象有两个
+    （1）log.txt
+            |--monkey生成的log
+            |--记录了anr ／crash等log
+            |--anr 可以看到cpu的使用率
+    （2）trance.txt
+            |--android系统生成的
+            |--trance.txt存放的目录 data/anr/trance.txt
+            |--trance.txt记录了anroid 系统最后一次anr的详细log
+            |--获取trance.txt文件命令 adb pull /data/anr/trance.txt xxxxx存放目录
+
+
+2  分析log方法
+
+http://cache.baiducontent.com/c?m=9f65cb4a8c8507ed4fece7631046893b4c4380146d96864968d4e414c42246171430bee7707f0d57938327365ff8540abdb6652969423dbd9bcd8a49dfbe8f3c6ad567627f4fda17528e42f9dc46548077d01eb2fe4ef0ba8161cfee&p=ce3bc816d9c117ed08e2977f0f53bb&newp=8d769a47889a33f208e2977f0f5c9f231610db2151d7d6146b82c825d7331b001c3bbfb42324110fd8c27a6d01ad4d56edf33473340127a3dda5c91d9fb4c57479d67e462d&user=baidu&fm=sc&query=android+service+anr&qid=c864874e0003eeba&p1=2
