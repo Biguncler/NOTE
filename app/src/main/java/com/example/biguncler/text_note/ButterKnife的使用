@@ -1,0 +1,14 @@
+一，ButterKnife是什么
+    ButterKnife是一个专注于Android系统的View注入框架,可以减少大量的findViewById以及setOnClickListener代码，可视化一键生成。
+二，ButterKnife特点
+    1、强大的View绑定和Click事件处理功能，简化代码，提升开发效率
+    2、方便的处理Adapter里的ViewHolder绑定问题
+    3、ButterKnife的注解是在编译时起作用，运行时不会影响APP效率，使用配置方便
+    4、代码清晰，可读性强
+    5，ButterKnife的注解不能在private、static的方法和变量中使用
+三，ButterKnife的使用
+    1，在modlue的gradle.build文件中添加依赖
+        compile 'com.jakewharton:butterknife:8.6.0'
+        annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
+    2，基本使用方法参考
+        http://jakewharton.github.io/butterknife/

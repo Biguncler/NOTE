@@ -1,0 +1,24 @@
+一，什么是jni
+    jni（java native interface）jni是实现java和c／c++交互的协议
+二，如何实现jni
+    1，java调c方法
+        （1）在java 的native类
+        // 该类包名：com.biguncler.jni
+         public class TestJni{
+            static{
+                // 此处加载.so文件，xxx为.so文件的文件名，不包含扩展名
+                System.loadLibrary("xxx");
+            }
+            // java方法体，让c实现
+            public native String getUserInfo(String id);
+         }
+        （2）用c实现java
+            // 方法名必须为本地方法的全类名点改为下划线，传入的两个参数必须这样写
+            // 第一个参数为Java虚拟机的内存地址的二级指针，用于本地方法与java虚拟机在内存中交互
+            // 第二个参数为一个java对象
+            jstring Java_com_biguncler_jni_TestJni_getUserInfo(JNIEnv* env,jobject obj)
+            {
+                c的实现代码
+            }
+        (3) 通过编译，将c代码变成.so文件，该.so文件就是在TestJni加载的.so文件
+    2，c调java方法 暂不扩展

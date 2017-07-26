@@ -1,0 +1,61 @@
+一，什么是多渠道打包
+    为app设置一个与渠道相关的id，用于区别上架在不同的appstroe，方便统计各渠道的下载量
+二，多渠道打包配置，以umeng为例
+    1，根据umeng的接入文档，在manifest文件中创建<meta-data/>标签，${UMENG_CHANNEL_VALUE}为渠道id的占位符
+    <meta-data
+        android:name="UMENG_CHANNEL"
+        android:value="${UMENG_CHANNEL_VALUE}" />
+    2，在module的gradle文件中配置如下
+    （1）配置多个打包的task
+    android {
+        productFlavors {
+            kuan {
+                manifestPlaceholders = [UMENG_CHANNEL_VALUE: "kuan"]
+            }
+            xiaomi {
+                manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+            }
+            qh360 {
+                manifestPlaceholders = [UMENG_CHANNEL_VALUE: "qh360"]
+            }
+            baidu {
+                manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+            }
+            wandoujia {
+                manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+            }
+        }
+    }
+     可简化成
+     android {
+         productFlavors {
+             kuan {}
+             xiaomi {}
+             qh360 {}
+             baidu {}
+             wandoujia {}
+         }
+
+         productFlavors.all {
+             flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+         }
+     }
+
+     （2）修改生成多渠道apk名称
+     buildTypes {
+             release {
+                 minifyEnabled false
+                 proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+                 // 自定义输出配置
+                 applicationVariants.all { variant ->
+                     variant.outputs.each { output ->
+                         def outputFile = output.outputFile
+                         if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                             // 输出apk名称为wooyun_v1.0_wandoujia.apk
+                             def fileName = "wooyun_v${defaultConfig.versionName}_${variant.productFlavors[0].name}.apk"
+                             output.outputFile = new File(outputFile.parent, fileName)
+                         }
+                     }
+                 }
+             }
+         }
