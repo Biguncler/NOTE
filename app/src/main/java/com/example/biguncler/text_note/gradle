@@ -1,0 +1,67 @@
+一，gradle任务创建
+    1,在gradle文件中输入：
+       task taskName（type：taskType）{
+           do something...
+       }
+    2,创建task的2种方法
+        （1）调用Project的task()方法创建Task
+            task myPrinter << {
+                println 'hello kitty'
+            }
+        （2）通过TaskContainer的create()方法创建Task
+            tasks.create(name: 'myPrinter') << {
+               println 'hello4'
+            }
+         注：“<<”表示追加的意思，即向myPrinter中加入执行过程， 每个project都有个taskContainer，创建的task都添加到taskContainer
+            在project中tasks代表了taskContainer，所以可以使用project的task()方法添加任务，也可以直接使用tasks添加任务
+    3，task类型
+        （1）删除
+        task clean(type: Delete) {
+            delete rootProject.buildDir
+        }
+        （1）拷贝文件，将a目录下的文件全部拷贝到b目录下 （a，b目录与gradle文件同目录）
+        task copyFile(type: Copy){
+            from 'a'
+            into 'b'
+        }
+    4，task的依赖声明
+        （1）hello2依赖hello1
+            task hello2(dependsOn:hello1) << {
+               println 'hello kitty'
+            }
+        （2）hello2依赖hello1
+           task hello2 << {
+                println 'hello kitty'
+            }
+
+            hello2.dependsOn hello1
+        注：在执行任务时会先执行任务的依赖，然后在执行该任务
+    5，task的属性
+        （1）Gradle为每个Task默认定义的Property，比如description，logger等
+        （2）Gradle在执行task任务前会先配置该task的属性，然后在执行task的动作
+        （3）task的property配置方式
+            （a）在定义Task的时候对Property进行配置
+                task hello << {
+                   description = "this is hello"
+                   println description
+                }
+            （b）通过闭包的方式来配置一个已有的Task
+                task hello8 << {
+                println description
+                }
+
+                hello8 {
+                description = "this is hello8"
+                }
+             （c）通过调用Task的configure()方法完成Property的设置
+                task hello9 << {
+                   println description
+                }
+
+                hello9.configure {
+                   description = "this is hello9"
+                }
+
+
+
+
