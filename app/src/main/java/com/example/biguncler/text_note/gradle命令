@@ -1,0 +1,4 @@
+1，查看gradle版本
+    gradle -version
+
+

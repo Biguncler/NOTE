@@ -21,3 +21,7 @@
     adb shell getprop ro.build.version.release
 11, 查看连接的设备
     adb devices
+12，在输入框中输入某段文本
+    adb shell input text xxxx
+13，在输入框中输入键盘上的某个字符
+    adb shell input keyevent x （x为code值，代表键盘上的某个特定的键）
