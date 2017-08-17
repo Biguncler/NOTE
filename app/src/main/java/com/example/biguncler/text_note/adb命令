@@ -24,3 +24,34 @@
 12，在输入框中输入某段文本
     adb shell input text xxxx (xxx为输入的某段文本)
     adb shell input keyevent x （x为code值，代表键盘上的某个特定的键）
+
+
+
+sdcard文件编辑命令
+1，切换路径
+    adb shell cd /sdcard/download  (切换到download路径)
+2,查看某路径下的文件及文件夹
+    adb shell ls /sdcard/download  (查看download文件夹下的所有文件及文件夹)
+    adb shell ls -a /sdcard/download  (显示所有内容，包括隐藏)
+    adb shell ls -s /sdcard/download  (显示所有内容，包括文件大小)
+
+3,创建文件夹和文件
+    adb shell mkdir /sdcard/download/001 (在download的文件夹创建子文件夹001)
+    adb shell touch /sdcard/download/001.txt (在download的文件夹创建001.txt文件)
+
+4,删除文件和文件夹
+    adb shell rm /sdcard/download/001.txt(删除文件，不能用于删除文件夹)
+    adb shell rm -r /sdcard/download/001 (删除001文件夹及该文件夹下的所有文件)
+    adb shell rm -i /sdcard/download/001.txt (删除001.txt文件时会提示是否删除，不能直接删除文件夹)
+    adb shell rm -iR /sdcard/download (会提示是否删除download的下的文件和文件夹，及提示是否删除本文件夹)
+
+5,复制文件
+    adb shell cp /sdcard/download/001/test.txt /sdcard/download/002 (将test.txt文件复制到002文件夹下，不能直接复制文件夹)
+
+6，移动文件
+    adb shell mv /sdcard/download/001/test.txt /sdcard/download/002 (将test.txt文件移动到002文件夹下，不能直接移动文件夹)
+
+7，文件重命名
+    adb shell mv /sdcard/download/001/test.txt /sdcard/download/001／hello.txt (采用移动覆盖的方法重命名，没有直接命名的命令？)
+
+
