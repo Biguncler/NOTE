@@ -24,6 +24,11 @@
 12，在输入框中输入某段文本
     adb shell input text xxxx (xxx为输入的某段文本)
     adb shell input keyevent x （x为code值，代表键盘上的某个特定的键）
+13，指定某个app在启动时就等待调试
+    adb shell am set-debug-app -w xxx (xxx为app包名，只等待一次)
+    adb shell am set-debug-app -w --persistent (每次启动都等待)
+    // 退出等待调试
+    adb shell am clear-debug-app
 
 
 

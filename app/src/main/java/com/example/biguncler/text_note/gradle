@@ -62,6 +62,12 @@
                    description = "this is hello9"
                 }
 
+二。自定义Project的Property属性
+    1，定义方式
+        （1）在build.gradle文件中输入 ext.my_proterty="this is diy property" ,或者通过闭包的方式 ext{my_proterty="this is diy property"}
+        （2）通过-P命令行参数定义Property
+        （3）通过JVM系统参数定义Property
+
 
 
 
