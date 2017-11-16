@@ -137,5 +137,24 @@
     （7）泛型还包括通配符，泛型方法等，目前不清楚，待以后深入研究
 
 
+    --------------------2017，11，16--------------------
+32，集合
+    （1）集合分为两类
+        Collection接口 代表存储对象数据
+        Map接口 代表存储映射关系数据
+
+    （2）数组的元素可以是基本类型数据也可以是对象，但集合只能是对象
+
+    （3）Collection及Map的实现
+        Collection
+            //image_colection_001
+        Map
+            //image_map_001
+    （4）Colection的基本方法
+        //image_collection_002
+    （5）Iterator的基本方法
+        //image_iterator_001
+
+
 
 
