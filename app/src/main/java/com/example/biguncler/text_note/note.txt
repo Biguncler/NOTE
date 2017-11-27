@@ -152,8 +152,42 @@
             //image_map_001
     （4）Colection的基本方法
         //image_collection_002
-    （5）Iterator的基本方法
-        //image_iterator_001
+
+    （6）Set接口
+        |--代表无序equeal不可重复
+        |--当Set重复添加对像时，add方法返回false，重复的对象不能添加进去
+        |--Set判断对象是否重复调用的是equal方法，即比较对象的引用是否一样，和"=="等效（String的equal方法被重写，不比较引用，比较内容是否相等）
+    （7）HashCode是根据一定的规则将对象相关信息（如指针，字段）映射成一个数值，这个数值称为HashCode
+    （8）HashSet类
+        |--Set的子类
+        |--代表无序hashCode不能重复
+        |--HashSet add方法：先获取存储对象的hashCode值，从维护的索取表查找是否有相同hashCode值，如果有的然后在维护的索取表中加入hashCode值和对象即将在HashSet中存储的地址形成映射关系，
+    （9）List
+        |--指定list的容量
+            |--list的容量默认是10
+            |--ensureCapacity(int capacity)
+            |--new ArrayList<T>(capacity)
+        |--将list的容量缩成当前size
+            |--trimToSize()
+        |--如果预先知道list需要add很都的数据，可以设置list的默认容量来减少list的扩容次数，提高代码效率
+        |--调用trimToSize()，可以使list减少内存占用。
+
+
+    （9）集合的遍历
+        |--Iterator
+            |--Iterator的基本方法
+                //image_iterator_001
+            |--Iterator中cursor的初始位置是-1
+            |--remove方法移除的是调用next后，cursor指向的元素
+            |--Iterator在遍历时，不能调用集合的add和remove方法,只能用iterator的remove方法，否则会抛ConcrrentModificationException
+        |--ListIterator
+            |--Iterator的基本方法
+                |--包含了Iterator的所有方法
+                |--add() 在当前cursor的下个指针位置插入元素，但插入的元素并不在Iterator的遍历中
+                |--nextIndex() 返回下一个元素的index
+                |--hasPrevious() 和hasNext的方向相反
+                |--previous() 和next方向相反
+
 
 
 
