@@ -3,10 +3,15 @@
     参考文档：http://cache.baiducontent.com/c?m=9f65cb4a8c8507ed4fece7631046893b4c4380146d96864968d4e414c42246101d31bfac2056585e8099297006db021bf7a376346c527ee0869edf0c8ee0cc69328f273f721e834115c75cf28b102a816a875a98fc45b1faad69c5&p=9c64c85685cc43f304bd9b7d0d1ccc&newp=882a9645dc9c5de902b6ca2d02148d231610db2151d3da01298ffe0cc4241a1a1a3aecbf2124110ed3cf7d6602a9485eeafa3572340634f1f689df08d2ecce7e7094616e2b42&user=baidu&fm=sc&query=RX+android&qid=8b5590f40000d817&p1=3
 二，rxjava优点
     最概括的两个字：简洁。而且当业务越繁琐越复杂时这一点就越显出优势——它能够保持简洁。
-三，rxjava的使用
+三，rxjava的使用的基本形态
     1，在module的gradle文件上配置依赖
         compile 'io.reactivex:rxandroid:1.2.1'
         compile 'io.reactivex:rxjava:1.1.6'
+
+
+
+        compile 'io.reactivex.rxjava2:rxjava:2.0.1'
+        compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
     2，创建被观察者Observable对象
                 Observable observable=Observable.create(new Observable.OnSubscribe<Integer>() {
                     @Override

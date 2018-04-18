@@ -1,0 +1,66 @@
+1,查看当前状态(待跟踪，待提交，待推送)
+    git status
+2,git add (将untracked文件add到缓存区)
+    |--git add path(将指定的文件或文件夹add到缓存区)
+    |--git add . (将所有未跟踪的文件add到缓存区)
+3,git reset (将暂存区的但本地仓库中没有的文件回滚到工作区)
+    |--git reset path(将指定暂存区的但本地仓库中没有的文件回滚到工作区)
+    |--git reset .(将所有暂存区的但本地仓库中没有的文件回滚到工作区)
+    |--git reset --hard HEAD^(将上一提交到仓库的文件回滚到暂存区,并删除仓库和暂存区文件)
+    |--git reset --soft HEAD^(将上一提交到仓库的文件回滚到暂存区,删除仓库文件但不删除暂存区文件)
+    |--git reset --mixed HEAD^(将上一提交到仓库的文件回滚到暂存区,删除仓库文件但不删除暂存区文件)
+5,git rm (删除指定的已跟踪的文件,不能移除未跟踪的文件)
+    |--git rm path (彻底删除文件)
+    |--git rm path --cached (从仓库删除指定文件，但保留在工作区)
+6,git commit (将缓存区改动提交到本地仓库中)
+    |--git commit -m xxx(将缓存区改动提交到本地仓库中,xxx为本次提交的内容描述)
+    |--git commit -am xxx(等同于 git add . 加上 git commit -m，,xxx为本次提交的内容描述)
+    |--git commit -am (等同于 git add . 加上 git commit -m)
+7,git revert (将当前的分支回归到指定的提交状态，并在当前分支头部添加一个新的提交)
+    |--git revert HEAD^
+8.git log (查看提交记录)
+    |--git log
+
+9,git branch (分支管理)
+    |--git branch -l (查看本地仓库所有的分支)
+    |--git branch -r (查看远程仓库所有的分支)
+    |--git branch xxx(基于当前分支创建本地新分支，名字为xxx)
+    |--git branch -d xxx (删除名字为xxx的本地分支)
+    |--git branch -D xxx (强制删除名字为xxx的本地分支)
+    |--git branch -v (查看本地所有分支的最后一次提交信息)
+    |--git branch --merged (查看已被合并到当前分支所有分支 注：本地分支)
+    |--git branch --no-merged (查看未被合并到当前分支所有分支 注：本地分支)
+    |--git branch --set-upstream xxx(将当前分支关联到远端xxx分会)
+    |--git checkout xxx (切换到本地的某个分支)
+    |--git checkout -b xxx (创建xxx分支并切换到该分支)
+    |--git checkout -b 本地分支名x origin/远程分支名x
+11,git merge (合并分支)
+    |--git merge xxx (将xxx分支合并到当前分支)
+12,git rebase
+    |--git rebase xxx(将xxx分支rebase到当前分支)
+13,git clean(删除untrack文件)
+    |--git clean -n (显示要删除的文件和文件夹)
+    |--git clean -f (删除当前分支所有untrack的文件)
+    |--git clean -fd (删除当前分支所有untrack的文件和文件夹)
+14,git stash
+    |--git stash list (显示所有的暂存)
+    |--git stash clear (删除所有的暂存)
+    |--git stash save xxx (保存名为xxx的暂存)
+    |--git stash pop stash@{x} (复原下标为x的暂存，下标为git stash list命令显示的的结果顺序)
+15,git remote
+    |--git remote -v (列出远端仓库的url)
+    |--git remote add xxx yyy (创建名为xxx，url为yyy的远程仓库)
+    |--git remote rename github gh(仓库重命名，将github命名为gh)
+    |--git remote rm xxx (删除仓库，xxx为仓库名称)
+16，git fetch
+    |--git fetch xxx （将名为xxx的远程仓库的数据拉下来）
+    |--git fetch xxx yyy（将名为xxx的远程仓库 yyy分支的数据拉下来）
+17，git pull （等效与git fetch 和 git merge）
+    |--git pull <远程主机名> <远程分支名>:<本地分支名> (将远端分支拉到本地，并merge到指定的分支)
+    |--git pull --rebase <远程主机名> <远程分支名>:<本地分支名>  （将远端分支拉到本地，并rebase到指定的分支）
+18,git push
+    |--git push (将本地分支推送到远端关联的分支)
+    |--git push <远程主机名> <远程分支名>:<本地分支名> (将本地分支推送到远端的分支)
+
+
+

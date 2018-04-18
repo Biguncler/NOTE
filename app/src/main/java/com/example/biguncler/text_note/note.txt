@@ -154,7 +154,7 @@
         //image_collection_002
 
     （6）Set接口
-        |--代表无序equeal不可重复
+        |--代表无序、不可重复
         |--当Set重复添加对像时，add方法返回false，重复的对象不能添加进去
         |--Set判断对象是否重复调用的是equal方法，即比较对象的引用是否一样，和"=="等效（String的equal方法被重写，不比较引用，比较内容是否相等）
     （7）HashCode是根据一定的规则将对象相关信息（如指针，字段）映射成一个数值，这个数值称为HashCode
@@ -173,7 +173,7 @@
         |--调用trimToSize()，可以使list减少内存占用。
 
 
-    （9）集合的遍历
+    （10）集合的遍历
         |--Iterator
             |--Iterator的基本方法
                 //image_iterator_001
@@ -188,7 +188,13 @@
                 |--hasPrevious() 和hasNext的方向相反
                 |--previous() 和next方向相反
 
-
+    （11）Collections工具类
+        |--排序操作
+            //image_colections_image_001
+        |--查找替换操作
+            //image_collections_image_002
+        |--同步控制
+           //image_collections_image_003
 
 
 
